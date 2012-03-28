@@ -27,6 +27,7 @@ class git_model {
 		return $git_user;
 	}	
 	
+	// https://api.github.com/users:user/repos/
 	public function repos( )
 	{
 		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
@@ -40,14 +41,15 @@ class git_model {
 	}
 	
 	// https://api.github.com/repos/:user/:repo/git/refs/tags
-	function refs() 
+	function tags( $repo = '' ) 
 	{
+		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
+		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+
+		$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/git/refs/tags', 0, $scc );
+
+		$git_tags = json_decode( $git_tags );
 		
-	}
-	
-	// https://api.github.com/repos/:user/:repo/git/tags/:sha
-	function tags()
-	{
-		return 'tags';
+		return $git_tags;
 	}
 }

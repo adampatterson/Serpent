@@ -10,7 +10,7 @@ class developer_controller {
 		} 
 		else
 		{
-			load::view ( 'developer/dashboard' );
+			url::redirect ( 'developer/dashboard' );
 		}
 		
 	}
@@ -18,7 +18,12 @@ class developer_controller {
 	public function dashboard()
 	{
 		valid_user();
-		load::view ( 'developer/dashboard' );
+		
+		$github = load::model ( 'git' );
+
+		$git_repos = $github->repos();
+		
+		load::view ( 'developer/dashboard', array('git_repos'=>$git_repos) );
 	}
 	
 	public function themes()

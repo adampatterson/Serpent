@@ -6,17 +6,25 @@
 			</div><!--/.well -->
 		</div><!--/span-->
 		<div class="span9">
-			<h1>Hello, <?= user_name();?>!</h1>
-			<h3>Public Repositories</h3>
-				<?
-				$github = load::model ( 'git' );
-
-				$git_user = $github->repos();
-				
-				echo '<pre>';
-				print_r($git_user);
-				echo '</pre>';
-				?>
+			<h2>Public Repositories</h2>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Last Updated</th>
+					</tr>
+				</thead>
+				<tbody>
+					<? foreach ($git_repos as $repo):?>
+					<tr>
+						<td><?= $repo->name ?></td>
+						<td><?= $repo->description ?></td>
+						<td><?= $repo->pushed_at ?></td>
+					</tr>
+					<? endforeach; ?>
+				</tbody>
+			</table>
 		</div><!--/span-->
 	</div><!--/row-->
 <? load::view ( 'parts/footer' );
