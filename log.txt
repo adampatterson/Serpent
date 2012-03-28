@@ -1,0 +1,89 @@
+[4:33 PM Mar 27 2012] Notice: Undefined variable: iser IN /Users/adampatterson/Sites/serpent/application/controller/developer.php ON LINE 34
+[4:46 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 61
+[4:49 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 61
+[4:56 PM Mar 27 2012] Notice: Undefined property: dingo::$name IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 25
+[4:58 PM Mar 27 2012] Notice: Undefined property: dingo::$name IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 25
+[5:00 PM Mar 27 2012] Notice: Undefined property: dingo::$name IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 25
+[5:01 PM Mar 27 2012] Notice: Undefined property: dingo::$name IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 25
+[5:02 PM Mar 27 2012] Notice: Undefined property: dingo::$name IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 25
+[5:02 PM Mar 27 2012] Notice: Undefined property: stdClass::$name IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 25
+[5:04 PM Mar 27 2012] Notice: Undefined property: stdClass::$location IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 62
+[5:05 PM Mar 27 2012] Notice: Undefined property: stdClass::$location IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 62
+[5:05 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:05 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$location IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 62
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$twitter IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 89
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$linkedin IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 95
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$forrst IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 101
+[5:06 PM Mar 27 2012] Notice: Undefined property: stdClass::$website IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 107
+[5:07 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:07 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:07 PM Mar 27 2012] Notice: Undefined property: stdClass::$twitter IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 89
+[5:07 PM Mar 27 2012] Notice: Undefined property: stdClass::$linkedin IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 95
+[5:07 PM Mar 27 2012] Notice: Undefined property: stdClass::$forrst IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 101
+[5:07 PM Mar 27 2012] Notice: Undefined property: stdClass::$website IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 107
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$twitter IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 89
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$twitter IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 89
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$twitter IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 89
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$twitter IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 89
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$about_you IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 68
+[5:09 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 79
+[5:39 PM Mar 27 2012] Notice: Undefined variable: editor IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 45
+[5:42 PM Mar 27 2012] Notice: Undefined offset: 0 IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 163
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 163
+[5:42 PM Mar 27 2012] Notice: Undefined offset: 0 IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 139
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 18
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 24
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 30
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 37
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 55
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 61
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 82
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 88
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 94
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 100
+[5:42 PM Mar 27 2012] Notice: Undefined offset: 0 IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 163
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 163
+[5:42 PM Mar 27 2012] Notice: Undefined offset: 0 IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 139
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 18
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 24
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 30
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 37
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 55
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 61
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 82
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 88
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 94
+[5:42 PM Mar 27 2012] Notice: Trying to get property of non-object IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 100
+[5:43 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[5:44 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_username IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[5:45 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_user IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[5:46 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_user IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[5:46 PM Mar 27 2012] Notice: Undefined property: stdClass::$git_user IN /Users/adampatterson/Sites/serpent/application/view/developer/profile.php ON LINE 72
+[6:23 PM Mar 27 2012] Notice: Undefined variable: git_username IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 95
+[6:23 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 59
+[6:24 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 59
+[6:31 PM Mar 27 2012] Notice: Undefined variable: git_username IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 95
+[6:31 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 59
+[6:33 PM Mar 27 2012] Notice: Undefined variable: git_username IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 95
+[6:33 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 59
+[6:34 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 59
+[6:48 PM Mar 27 2012] Notice: Undefined variable: git_username IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 95
+[6:48 PM Mar 27 2012] Notice: Use of undefined constant NOTE_PASSWORD - assumed 'NOTE_PASSWORD' IN /Users/adampatterson/Sites/serpent/application/controller/action.php ON LINE 59
+[7:00 PM Mar 27 2012] Notice: Undefined variable: git_username IN /Users/adampatterson/Sites/serpent/application/model/user.php ON LINE 94
+[12:09 AM Mar 28 2012] Notice: Undefined variable: git_hub IN /Users/adampatterson/Sites/serpent/application/view/developer/dashboard.php ON LINE 16
+[12:11 AM Mar 28 2012] Notice: Undefined variable: user IN /Users/adampatterson/Sites/serpent/application/helper/user.php ON LINE 21
+[12:16 AM Mar 28 2012] Warning: file_get_contents(https://api.github.com/users/adampattersonrepos) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ IN /Users/adampatterson/Sites/serpent/application/model/git.php ON LINE 35
