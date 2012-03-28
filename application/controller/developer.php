@@ -54,4 +54,13 @@ class developer_controller {
 
 		load::view ( 'developer/profile', array( 'user' => $user, 'user_meta' => $user_meta ) );
 	}
+	
+	public function pull()
+	{
+		load::helper ('git');
+		
+		echo '<pre>';
+		echo pull();
+		echo '</pre>';
+	}
 }
