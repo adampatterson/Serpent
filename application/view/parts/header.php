@@ -47,8 +47,10 @@
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
-            <p class="navbar-text pull-right">Logged in as <a href="#"><?= user_name(); ?></a></p>
-          </div><!--/.nav-collapse -->
+			<? if ( user::valid() ): ?>
+            	<p class="navbar-text pull-right">Logged in as <a href="#"><?= user_name(); ?></a></p>
+			<? endif; ?>          
+</div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
