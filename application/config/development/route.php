@@ -8,9 +8,9 @@ route::set('default_route','developer');
 //route::set('one/([a-zA-Z]+)/([a-zA-Z]+)','query/$1/$2' );
 //route::set('sweet',array('controller'=>'test/sweet'));
 
-route::set('foo/bar/([a-zA-Z]+)', array(
-  'controller'=>'api',
-  'function'=>'tree',
+route::set('confirm/([a-zA-Z0-9]+)', array(
+  'controller'=>'confirm',
+  'function'=>'index',
   'arguments'=>array('$1')
 ));
 

@@ -13,6 +13,7 @@
 						<th>Name</th>
 						<th>Description</th>
 						<th>Last Updated</th>
+						<th>&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -21,6 +22,7 @@
 						<td><?= $repo->name ?></td>
 						<td><?= $repo->description ?></td>
 						<td><?= $repo->pushed_at ?></td>
+						<td><a href="<?= BASE_URL?>developer/submit_extension/<?= $repo->name ?>" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add This</a></td>
 					</tr>
 					<? endforeach; ?>
 				</tbody>

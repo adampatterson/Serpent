@@ -44,13 +44,28 @@ class user_model
 			->data('website',$website)
 			->save();
 			
+		$hashed_ip = sha1($_SERVER['REMOTE_ADDR'].time());	
+		
 		$users  = db( 'users' );
 		
 		$users->update(array(
-				'registered'=> time()
+				'registered'=> time(),
+				'confirm_key'=>$hashed_ip
 			))
 			->where( 'email', '=', $email )
 			->execute();
+
+        // Attach that Hash to the users email address.
+        $mail = new email();
+        $mail->to($username);
+		$mail->from('Adam Patterson <hello@tentaclecms.com>');
+        $hash_address = BASE_URL.'confirm/'.$hashed_ip;
+        // @todo get install admings email address
+        $mail->from('Serpent API Developer Registration');
+        $mail->subject('Missing Password');
+        $mail->content('<strong>Click the link to reset your password.</strong><br />'.$hash_address);
+        $mail->send();	
+			
 			
 		note::set('success','user_add','User Added!');
 	}
@@ -146,6 +161,7 @@ class user_model
 			return $users[0];	
 		}
 	}
+
 	
 	/**
 	* Get user Meta
@@ -198,5 +214,36 @@ class user_model
 		else:
 			echo '1';
 		endif;
+	}
+	
+	/**
+	* Account Creation and Lost password
+	* ----------------------------------------------------------------------------------------------*/	
+	public function get_hash( $hash = '' )
+	{
+		$users_table = db ( 'users' );
+
+		$confirm_user = $users_table->select( '*' )
+			->where ( 'confirm_key', '=', $hash)
+			->execute();
+			
+		if ( isset( $confirm_user[0] ) ) 
+		{				
+			return TRUE;
+			
+		} else {
+			return FALSE;
+		}
+	}
+	
+	public function remove_hash( $hash = '' )
+	{
+		$users_table = db ( 'users' );
+			
+		$users_table->update(array(
+				'confirm_key'=>''
+			))
+			->where( 'confirm_key', '=', $hash )
+			->execute();
 	}
 }

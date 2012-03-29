@@ -34,7 +34,7 @@ date_default_timezone_set('America/New_York');
 config::set('autoload_library',array('url','db','note','session','user'));
 
 /* Auto Load Helpers */
-config::set('autoload_helper',array('http-status','post-request', 'serpent','user'));
+config::set('autoload_helper',array('http-status','post-request', 'serpent','user','inflector'));
 
 
 /* Sessions */

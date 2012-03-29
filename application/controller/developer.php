@@ -2,6 +2,8 @@
 
 class developer_controller {
 	
+	// look up developer profiles.
+	// List their extensions, stats, descriptions, and socail media links
 	public function index()
 	{
 		if(!user::valid()) 
@@ -26,16 +28,38 @@ class developer_controller {
 		load::view ( 'developer/dashboard', array('git_repos'=>$git_repos) );
 	}
 	
+	public function submit_extension ( $repo = '' )
+	{
+		valid_user();
+		
+		$github = load::model ( 'git' );
+
+		$git_repos = $github->repos( $repo );
+		$git_tags = $github->tags( $repo );
+		
+		load::view ( 'developer/submit_extension', array( 'repo'=> $git_repos, 'tags'=> $git_tags ) );
+	}
+	
 	public function themes()
 	{
 		valid_user();
-		load::view ( 'developer/themes' );
+		
+		$themes = load::model ( 'extension' );
+
+		$get_themes = $themes->get_themes();
+		
+		load::view ( 'developer/themes', array( 'themes'=> $get_themes ) );
 	}
 	
 	public function plugins()
 	{
 		valid_user();
-		load::view ( 'developer/plugins' );
+		
+		$plugins = load::model ( 'extension' );
+
+		$get_plugins = $plugins->get_plugins();
+		
+		load::view ( 'developer/plugins', array( 'plugins'=> $get_plugins ) );
 	}
 	
 	public function statistics()

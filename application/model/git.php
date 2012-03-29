@@ -27,9 +27,10 @@ class git_model {
 		return $git_user;
 	}	
 	
-	// https://api.github.com/users:user/repos/
-	public function repos( )
+	// https://api.github.com/users/:user/repos/
+	public function repos( $repo = '' )
 	{
+
 		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
 		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
 
@@ -37,16 +38,40 @@ class git_model {
 
 		$git_repo = json_decode( $git_repo );
 		
-		return $git_repo;
+		if ( $repo ) {
+			
+			foreach ( $git_repo as $single_repo ) {				
+				if ($single_repo->name == $repo ) {
+					return $single_repo;
+				}
+			}
+		} else {
+			return $git_repo;
+		}
+		
+		
 	}
 	
 	// https://api.github.com/repos/:user/:repo/git/refs/tags
-	function tags( $repo = '' ) 
+	function refs( $repo = '' ) 
 	{
 		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
 		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
 
 		$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/git/refs/tags', 0, $scc );
+
+		$git_tags = json_decode( $git_tags );
+
+		return $git_tags;
+	}
+	
+	// https://api.github.com/repos/:user/:repo/tags
+	function tags( $repo = '', $sha = '' ) 
+	{
+		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
+		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+
+		$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/tags'.$sha, 0, $scc );
 
 		$git_tags = json_decode( $git_tags );
 		

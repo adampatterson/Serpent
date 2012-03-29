@@ -2,6 +2,29 @@
 
 class action_controller {
 	
+	public function login ()
+	{
+		$username = input::post ( 'username' );
+	    $password = input::post ( 'password' );
+	
+		$history = input::post ( 'history' );
+
+	    user::login($username, $password);
+
+	    if(user::valid()) {
+
+			if ($history != '') {
+				url::redirect($history);
+			} else {
+				url::redirect('developer/dashboard');
+			}
+			
+	    } else {
+	       note::set("error","login",NOTE_PASSWORD);
+	       url::redirect('confirm'); 
+	    }
+	}
+	
 	public function add_profile ()
 	{			
 		$user = load::model( 'user' );
@@ -9,11 +32,8 @@ class action_controller {
 
 		$history = input::post ( 'history' );
 
-		// Check for return True.
-		// Log error
-
 		//url::redirect($history); 
-		url::redirect('dashboard/profile/');
+		url::redirect('confirm');
 	}
 	
 	public function update_profile ()
@@ -35,29 +55,29 @@ class action_controller {
 		$user = load::model( 'user' );
 		$user_delete = $user->delete( $id );
 		
-		url::redirect('admin/users_manage/');
+		url::redirect('developer/');
 	}
 	
-	public function login ()
+	public function submit_extension()
 	{
-		$username = input::post ( 'username' );
-	    $password = input::post ( 'password' );
-	
-		$history = input::post ( 'history' );
-
-	    user::login($username, $password);
-
-	    if(user::valid()) {
-
-			if ($history != '') {
-				url::redirect($history);
-			} else {
-				url::redirect('developer/dashboard');
-			}
+		valid_user();
+		
+		$extension = load::model( 'extension' );
+		$extension_add = $extension->add( );
+		
+		/*
+		$extension_tags = input::post( 'tags' );
+		$extension_tags = explode(',', $post_tags );
+		$tags = load::model( 'tags' );
+		
+		foreach ( $extension_tags as $tag ) {
+			$tag_single = $tags->add( $tag );
 			
-	    } else {
-	       note::set("error","login",NOTE_PASSWORD);
-	       url::redirect('login'); 
-	    }
+			$tag_relations = $tags->relations( $extension_add, $tag_single );
+		}	
+		
+		*/
+		
+		url::redirect('developer/dashboard/');
 	}
 }
