@@ -130,7 +130,7 @@ class user_model
 	/**
 	* Get User
 	* ----------------------------------------------------------------------------------------------*/
-	public function get_users ( $id='' )
+	public function get_users ( )
 	{
 		$users_table = db ( 'users' );
 
@@ -166,7 +166,7 @@ class user_model
 	/**
 	* Get user Meta
 	* ----------------------------------------------------------------------------------------------*/
-	public function get_meta ( $id = '' )
+	public function get_meta( $id = '' )
 	{
 		$user_meta = db ( 'users' );
 		

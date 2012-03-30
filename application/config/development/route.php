@@ -14,3 +14,16 @@ route::set('confirm/([a-zA-Z0-9]+)', array(
   'arguments'=>array('$1')
 ));
 
+route::set('plugins/([a-zA-Z0-9]+)', array(
+  'controller'=>'plugins',
+  'function'=>'index',
+  'arguments'=>array('$1')
+));
+
+route::set('author/([a-zA-Z0-9]+)', array(
+  'controller'=>'author',
+  'function'=>'index',
+  'arguments'=>array('$1')
+));
+
+
