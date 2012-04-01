@@ -28,8 +28,7 @@
 					<? endforeach; ?>
 				</tbody>
 			</table>
-			<p><a class="btn btn-primary btn-large" href="<?= BASE_URL ?>/developer/dashboard/">Submit an Extension &raquo;</a></p>
+			<p><a class="btn btn-primary btn-large" href="<?= BASE_URL ?>/developer/dashboard/">Submit a New Extension</a></p>
 		</div><!--/span-->
 	</div><!--/row-->
-<? load::view ( 'parts/footer' );
-?>
+<? load::view ( 'parts/footer' ); ?>

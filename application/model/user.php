@@ -151,13 +151,19 @@ class user_model
 				->execute();				
 
 			return $users[0];
-
+			
 		} else {
-			// Get user by ID
-			$users = $users_table->select( '*' )
-				->where ( 'id', '=', $id)
-				->execute();				
-
+			if ( is_numeric( $id ) ) {
+				// Get user by ID
+				$users = $users_table->select( '*' )
+					->where ( 'id', '=', $id)
+					->execute();
+			} else {
+				$users = $users_table->select( '*' )
+					->where ( 'username', '=', $id)
+					->execute();
+			}
+			
 			return $users[0];	
 		}
 	}
@@ -179,9 +185,15 @@ class user_model
 			
 			return $user_meta;
 		} else {	
-			$user_meta = $user_meta->select( 'data' )
-				->where ( 'id', '=', $id )
-				->execute();
+			if ( is_numeric( $id ) ) {
+				$user_meta = $user_meta->select( 'data' )
+					->where ( 'id', '=', $id )
+					->execute();
+			} else {
+				$user_meta = $user_meta->select( 'data' )
+					->where ( 'username', '=', $id )
+					->execute();
+			}
 			
 			$user_meta = json_decode($user_meta[0]->data);
 			

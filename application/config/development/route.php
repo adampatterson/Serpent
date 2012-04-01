@@ -26,4 +26,15 @@ route::set('author/([a-zA-Z0-9]+)', array(
   'arguments'=>array('$1')
 ));
 
+route::set('get/([a-zA-Z0-9]+)', array(
+  'controller'=>'get',
+  'function'=>'$1'
+));
+
+
+route::set('get/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)', array(
+  'controller'=>'get',
+  'function'=>'$1',
+  'arguments'=>array('$2')
+));
 
