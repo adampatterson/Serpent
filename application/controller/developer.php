@@ -21,11 +21,10 @@ class developer_controller {
 	{
 		valid_user();
 		
-		$github = load::model ( 'git' );
-
+		$github = load::model( 'git' );
 		$git_repos = $github->repos();
-		
-		load::view ( 'developer/dashboard', array('git_repos'=>$git_repos) );
+				
+		load::view ( 'developer/dashboard', array( 'git_repos'=>$git_repos ) );
 	}
 	
 	public function submit_extension ( $repo = '' )

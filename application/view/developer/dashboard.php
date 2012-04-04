@@ -18,12 +18,15 @@
 				</thead>
 				<tbody>
 					<? foreach ($git_repos as $repo):?>
-					<tr>
-						<td><?= $repo->name ?></td>
-						<td><?= $repo->description ?></td>
-						<td><?= $repo->pushed_at ?></td>
-						<td><a href="<?= BASE_URL?>developer/hide_extension/<?= $repo->name ?>" class="btn"><i class="icon-exclamation-sign"></i> Hide This</a> <a href="<?= BASE_URL?>developer/submit_extension/<?= $repo->name ?>" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add This</a></td>
-					</tr>
+
+					<? if ( !hide_extension( $repo->name ) ) { ?>
+						<tr>
+							<td><?= $repo->name ?></td>
+							<td><?= $repo->description ?></td>
+							<td><?= $repo->pushed_at ?></td>
+							<td><a href="<?= BASE_URL?>action/hide_extension/<?= $repo->name ?>" class="btn"><i class="icon-exclamation-sign"></i> Hide This</a> <a href="<?= BASE_URL?>developer/submit_extension/<?= $repo->name ?>" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add This</a></td>
+						</tr>
+					<?	} ?>
 					<? endforeach; ?>
 				</tbody>
 			</table>

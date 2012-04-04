@@ -258,4 +258,51 @@ class user_model
 			->where( 'confirm_key', '=', $hash )
 			->execute();
 	}
+	
+	
+	
+	/**
+	* Show hide non-extensions
+	* ----------------------------------------------------------------------------------------------*/		
+	public function unhide_repo ( $id = '' )
+	{
+		$user = user::id();
+		
+		$hide_extension_table = db ( 'hide_extensions' );
+		
+		$unhide = $hide_extension_table->delete()
+			->where('user_id','=',user::id())
+			->clause('AND')
+			->where('extension','=',$id);
+	}
+	
+	
+	public function hide_repo ( $id = '' )
+	{	
+		$hide_extension_table = db ( 'hide_extensions' );
+		
+		$hide = $hide_extension_table->insert(array(
+			'user_id'=>user::id(),
+			'extension'=>$id
+		));
+	}
+	
+	
+	public function get_hidden_repo ( $id = '' )
+	{
+		$hide_extension_table = db ( 'hide_extensions' );
+		
+		if ( $id == '' ):
+			$get_hidden_repo = $hide_extension_table->select( '*' )
+				->where ( 'user_id', '=', user::id() )
+				->execute();
+		else:
+			$get_hidden_repo = $hide_extension_table->select( '*' )
+				->where ( 'id', '=', $id )
+				->execute();
+		endif;
+		
+		return $get_hidden_repo;
+	}
+	
 }

@@ -23,3 +23,18 @@ function icon ( $page )
 	else
 		echo 'icon-black';
 }
+
+function hide_extension( $extension = '' )
+{
+	$user = load::model( 'user' );
+	$hidden_extensions = (array)$user->get_hidden_repo();
+	
+	foreach ( $hidden_extensions as $hidden ) {
+		
+		if ( $hidden->extension == $extension ):
+			return true;
+		endif;
+	}
+	
+	//return $extension;
+}

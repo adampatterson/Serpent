@@ -80,4 +80,16 @@ class action_controller {
 		
 		url::redirect('developer/dashboard/');
 	}
+	
+	
+	public function hide_extension( $id = '' )
+	{
+		valid_user();
+
+		$user = load::model ( 'user' );
+
+		$hide_repo = $user->hide_repo( $id );
+		
+		url::redirect('developer/dashboard/');
+	}
 }
