@@ -61,6 +61,21 @@ class developer_controller {
 		load::view ( 'developer/plugins', array( 'plugins'=> $get_plugins ) );
 	}
 	
+	public function core()
+	{
+		if(!user::is_type('owner'))
+			url::redirect ( 'developer/dashboard' );
+			
+		$github = load::model ( 'git' );
+
+		$git_core = $github->core( );
+		$git_tags = $github->tags( 'Tentacle' );
+			
+		print_r($git_core);
+		
+		//load::view ( 'developer/core' );	
+	}
+	
 	public function statistics()
 	{
 		valid_user();

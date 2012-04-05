@@ -41,11 +41,7 @@ class user
 			// If type of user is equal to or greater than specified return TRUE
 			return(self::$types[self::$_type] >= self::$types[$t]);
 		}
-		else
-		{
-			// If not a valid user return FALSE
-			return FALSE;
-		}
+	
 	}
 	
 	

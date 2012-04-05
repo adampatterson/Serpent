@@ -9,7 +9,6 @@ class user_model
 		$user_name    = input::post ( 'username' );
 		$password     = input::post ( 'password' );
 		$email        = input::post ( 'email' );
-		$type         = 2;
 		
 		$first_name   = input::post ( 'first_name' );
 		$last_name    = input::post ( 'last_name' );
@@ -28,7 +27,7 @@ class user_model
 			'username'=>$user_name,
 			'email'=>$email,
 			'password'=>$password,
-			'type'=>$type
+			'type'=>'user'
 		));
 
 		user::update($email)

@@ -38,18 +38,16 @@ class git_model {
 
 		$git_repo = json_decode( $git_repo );
 		
-		if ( $repo ) {
+		if ( $repo ):
 			
-			foreach ( $git_repo as $single_repo ) {				
-				if ($single_repo->name == $repo ) {
+			foreach ( $git_repo as $single_repo ):		
+				if ($single_repo->name == $repo ):
 					return $single_repo;
-				}
-			}
-		} else {
+				endif;
+			endforeach;
+		else:
 			return $git_repo;
-		}
-		
-		
+		endif;
 	}
 	
 	// https://api.github.com/repos/:user/:repo/git/refs/tags
@@ -63,6 +61,20 @@ class git_model {
 		$git_tags = json_decode( $git_tags );
 
 		return $git_tags;
+	}
+	
+	// https://api.github.com/repos/adampatterson/Tentacle
+	function core( ) 
+	{
+		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
+		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+
+		$git_repo = file_get_contents( 'https://api.github.com/repos/adampatterson/Tentacle', 0, $scc );
+
+		$git_repo = json_decode( $git_repo );
+		
+		return $git_repo;
+
 	}
 	
 	// https://api.github.com/repos/:user/:repo/tags
