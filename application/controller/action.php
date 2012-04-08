@@ -58,6 +58,18 @@ class action_controller {
 		url::redirect('developer/');
 	}
 	
+	public function version_extension()
+	{
+		valid_user();
+		
+		$extension = load::model( 'extension' );
+		$extension_add = $extension->version( );
+		
+		//turn the old plugin ( ID ) into {typr}_revision
+		
+		url::redirect('developer/dashboard/');
+	}
+	
 	public function submit_extension()
 	{
 		valid_user();
@@ -65,22 +77,8 @@ class action_controller {
 		$extension = load::model( 'extension' );
 		$extension_add = $extension->add( );
 		
-		/*
-		$extension_tags = input::post( 'tags' );
-		$extension_tags = explode(',', $post_tags );
-		$tags = load::model( 'tags' );
-		
-		foreach ( $extension_tags as $tag ) {
-			$tag_single = $tags->add( $tag );
-			
-			$tag_relations = $tags->relations( $extension_add, $tag_single );
-		}	
-		
-		*/
-		
 		url::redirect('developer/dashboard/');
 	}
-	
 	
 	public function hide_extension( $id = '' )
 	{
