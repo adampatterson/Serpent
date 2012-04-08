@@ -62,10 +62,12 @@ class action_controller {
 	{
 		valid_user();
 		
-		$extension = load::model( 'extension' );
-		$extension_add = $extension->version( );
+		$extension 		= load::model( 'extension' );
+		$extension_add 	= $extension->version( );
 		
-		//turn the old plugin ( ID ) into {typr}_revision
+		$extension = load::model ( 'extension' );
+
+		$old_extension = $extension->version_old( input::post( 'old_id' ), input::post ( 'extension_type' ) );
 		
 		url::redirect('developer/dashboard/');
 	}

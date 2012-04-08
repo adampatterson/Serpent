@@ -22,7 +22,7 @@
 					<tr>
 						<td><?= $theme->extension_name ?></td>
 						<td><?= $theme->version ?></td>
-						<td><?= $theme->added_on ?></td>
+						<td><?= date('F dS\, Y', $theme->added_on ); ?></td>
 						<td><a href="<?= BASE_URL?>developer/update_extension/<?= $theme->extension_slug ?>" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</a> <a href="<?= BASE_URL?>developer/version/<?= $theme->extension_slug ?>" class="btn btn-success"><i class="icon-refresh icon-white"></i> Version</a></td>
 					</tr>
 					<? endforeach; ?>

@@ -76,6 +76,29 @@ class extension_model {
 		
 		return $extension_id ;
 	}
+
+	public function version_old ( $old_id = '', $type = '' )
+	{
+		// update old
+		$users_table = db ( 'extension' );
+			
+		if ( $type == 'plugin' ):
+			$type = 'plugin_revision';
+		else:
+			$type = 'theme_revision';
+		endif;
+		
+			
+		$users_table->update(array(
+				'extension_type'=> $type
+			))
+			->where( 'id', '=', $old_id )
+			->execute();
+			
+			die;
+			
+			return TRUE;
+	}
 	
 	// @todo add a flad to return revisions
 	public function get( $slug = '' )

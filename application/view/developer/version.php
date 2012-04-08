@@ -11,6 +11,7 @@
 		<h1>Version an Extension</h1>
 			<form action="<?= BASE_URL ?>action/version_extension" method="post" accept-charset="utf-8" class="form-horizontal">
 			<input type="hidden" name="exension_revision" value="<?= $extension->revision ?>">
+			<input type="hidden" name="old_id" value="<?= $extension->id ?>">
 			<input type="hidden" name="added_on" value="<?= $extension->added_on ?>">
 			<input type="hidden" name="repo_name" value="<?= $extension->repo_name ?>">
 			<input type="hidden" name="extension_slug" value="<?= $extension->extension_slug ?>">
