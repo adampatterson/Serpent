@@ -44,14 +44,16 @@ class developer_controller {
 		valid_user();
 		
 		$extension = load::model ( 'extension' );
-		$get_extension = $extension->get( $repo );
+		
 		
 		$github = load::model ( 'git' );
 		
 		if ( $repo == 'core' ):
+			$get_extension = $extension->get( 'tentacle' );
 			$git_repos = $github->repos( 'Tentacle' );
 			$git_tags = $github->only_tags( 'Tentacle' );
 		else:
+			$get_extension = $extension->get( $repo );
 			$git_repos = $github->repos( $get_extension->repo_name );
 			$git_tags = $github->only_tags( $get_extension->repo_name );
 		endif;

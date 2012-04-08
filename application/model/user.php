@@ -227,6 +227,7 @@ class user_model
 		endif;
 	}
 	
+	
 	/**
 	* Account Creation and Lost password
 	* ----------------------------------------------------------------------------------------------*/	
@@ -246,6 +247,7 @@ class user_model
 			return FALSE;
 		}
 	}
+	
 	
 	public function remove_hash( $hash = '' )
 	{

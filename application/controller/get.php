@@ -68,6 +68,33 @@ class get_controller {
 		echo json_encode($extension);
 	}
 	
+	public function versions( $slug = '' )
+	{
+		$extensions = load::model ( 'extension' );
+		$user = load::model ( 'user' );
+
+		$dirty_plugins = $extensions->get_versions( $slug );	
+		
+		$depth = 0;
+		foreach ( $dirty_plugins as $plugin ) {
+			
+			$author = $user->get_meta($plugin->author_id);
+			
+			$extension[$depth]['id'] = $plugin->id;
+			$extension[$depth]['extension_name'] = $plugin->extension_name;
+			$extension[$depth]['extension_slug'] = $plugin->extension_slug;
+			$extension[$depth]['description'] = $plugin->description;
+			$extension[$depth]['version'] = $plugin->version;
+			$extension[$depth]['author_id'] = $plugin->author_id;
+			$extension[$depth]['website'] = $plugin->website;
+			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
+			
+			$depth++;
+		}
+
+		echo json_encode($extension);
+	}
+	
 	
 	// @todo: look up by author username
 	public function author( $id = '' )

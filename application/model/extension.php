@@ -39,6 +39,7 @@ class extension_model {
 		return $extension_id ;
 	}
 	
+	
 	public function version()
 	{
 		$extension_name 	= input::post ( 'extension_name' );
@@ -77,6 +78,7 @@ class extension_model {
 		return $extension_id ;
 	}
 
+
 	public function version_old ( $old_id = '', $type = '' )
 	{
 		// update old
@@ -100,18 +102,28 @@ class extension_model {
 			return TRUE;
 	}
 	
-	// @todo add a flad to return revisions
+	
 	public function get( $slug = '' )
 	{
 		$extension_table = db ( 'extension' );
 
-		$get = $extension_table->select( '*' )
-			->where ( 'extension_slug', '=', $slug)
-			->clause('AND')
-			->where ( 'extension_type', '!=', 'theme_revision')
-			->clause('AND')
-			->where ( 'extension_type', '!=', 'plugin_revision')
-			->execute();
+		if ( is_numeric( $slug ) ) {
+			$get = $extension_table->select( '*' )
+				->where ( 'id', '=', $slug)
+				->clause('AND')
+				->where ( 'extension_type', '!=', 'theme_revision')
+				->clause('AND')
+				->where ( 'extension_type', '!=', 'plugin_revision')
+				->execute();
+		} else {	
+			$get = $extension_table->select( '*' )
+				->where ( 'extension_slug', '=', $slug)
+				->clause('AND')
+				->where ( 'extension_type', '!=', 'theme_revision')
+				->clause('AND')
+				->where ( 'extension_type', '!=', 'plugin_revision')
+				->execute();
+		}
 
 		if ( $get ):
 			return $get[0];
@@ -119,8 +131,22 @@ class extension_model {
 			return FALSE;
 		endif;
 	}
+	
+	
+	public function get_versions( $slug = '' )
+	{
+		$extension_table = db ( 'extension' );
 
-	// @todo add a flad to return revisions	
+		$get = $extension_table->select( '*' )
+			->where ( 'extension_slug', '=', $slug)
+			->order_by( 'id', 'DESC' )
+			->execute();
+
+		// revisions are returned newest to oldest
+		return $get;
+	}
+
+
 	public function get_themes( $slug = '' )
 	{
 		$extension_table = db ( 'extension' );
@@ -132,7 +158,7 @@ class extension_model {
 		return $get_themes;
 	}
 
-	// @todo add a flad to return revisions	
+
 	public function get_plugins( $slug = '' )
 	{
 		$extension_table = db ( 'extension' );
@@ -143,8 +169,8 @@ class extension_model {
 			
 		return $get_plugins;
 	}
+
 	
-	// @todo add a flad to return revisions	
 	public function get_core( $slug = '' )
 	{
 		$extension_table = db ( 'extension' );
