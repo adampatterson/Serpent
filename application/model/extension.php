@@ -103,7 +103,7 @@ class extension_model {
 	}
 	
 	
-	public function get( $slug = '' )
+	public function get( $slug = '', $active = '1' )
 	{
 		$extension_table = db ( 'extension' );
 
@@ -114,6 +114,8 @@ class extension_model {
 				->where ( 'extension_type', '!=', 'theme_revision')
 				->clause('AND')
 				->where ( 'extension_type', '!=', 'plugin_revision')
+				->clause('AND')
+				->where ( 'active', '=', $active)
 				->execute();
 		} else {	
 			$get = $extension_table->select( '*' )
@@ -122,6 +124,8 @@ class extension_model {
 				->where ( 'extension_type', '!=', 'theme_revision')
 				->clause('AND')
 				->where ( 'extension_type', '!=', 'plugin_revision')
+				->clause('AND')
+				->where ( 'active', '=', $active)
 				->execute();
 		}
 
@@ -147,36 +151,42 @@ class extension_model {
 	}
 
 
-	public function get_themes( $slug = '' )
+	public function get_themes( $slug = '', $active = '1' )
 	{
 		$extension_table = db ( 'extension' );
 
 		$get_themes = $extension_table->select( '*' )
 			->where ( 'extension_type', '=', 'theme')
+			->clause('AND')
+			->where ( 'active', '=', $active)
 			->execute();
 			
 		return $get_themes;
 	}
 
 
-	public function get_plugins( $slug = '' )
+	public function get_plugins( $slug = '', $active = '1' )
 	{
 		$extension_table = db ( 'extension' );
 		
 		$get_plugins = $extension_table->select( '*' )
 			->where ( 'extension_type', '=', 'plugin')
+			->clause('AND')
+			->where ( 'active', '=', $active)
 			->execute();
 			
 		return $get_plugins;
 	}
 
 	
-	public function get_core( $slug = '' )
+	public function get_core( $slug = '', $active = '1' )
 	{
 		$extension_table = db ( 'extension' );
 
 		$get_themes = $extension_table->select( '*' )
 			->where ( 'extension_type', '=', 'core')
+			->clause('AND')
+			->where ( 'active', '=', $active)
 			->execute();
 			
 		return $get_themes;
