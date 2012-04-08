@@ -34,9 +34,29 @@ class developer_controller {
 		$github = load::model ( 'git' );
 
 		$git_repos = $github->repos( $repo );
-		$git_tags = $github->tags( $repo );
+		$git_tags = $github->only_tags( $repo );
 		
 		load::view ( 'developer/submit_extension', array( 'repo'=> $git_repos, 'tags'=> $git_tags ) );
+	}
+	
+	public function version( $repo = '' )
+	{
+		valid_user();
+		
+		$extension = load::model ( 'extension' );
+		$get_extension = $extension->get( $repo );
+		
+		$github = load::model ( 'git' );
+		
+		if ( $repo == 'core' ):
+			$git_repos = $github->repos( 'Tentacle' );
+			$git_tags = $github->only_tags( 'Tentacle' );
+		else:
+			$git_repos = $github->repos( $get_extension->repo_name );
+			$git_tags = $github->only_tags( $get_extension->repo_name );
+		endif;
+		
+		load::view ( 'developer/version', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags ) );
 	}
 	
 	public function themes()
@@ -66,14 +86,11 @@ class developer_controller {
 		if(!user::is_type('owner'))
 			url::redirect ( 'developer/dashboard' );
 			
-		$github = load::model ( 'git' );
+		$core = load::model ( 'extension' );
 
-		$git_core = $github->core( );
-		$git_tags = $github->tags( 'Tentacle' );
-			
-		print_r($git_core);
+		$get_core = $core->get_core();
 		
-		//load::view ( 'developer/core' );	
+		load::view ( 'developer/core', array( 'core'=> $get_core ) );
 	}
 	
 	public function statistics()

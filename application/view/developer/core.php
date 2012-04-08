@@ -17,12 +17,15 @@
 					</tr>
 				</thead>
 				<tbody>
+					<? 
+					foreach ( $core as $core ):?>
 					<tr>
-						<td>extension_name</td>
-						<td>$plugin->version</td>
-						<td>$plugin->added_on</td>
-						<td><a href="<?= BASE_URL?>developer/update_extension/core" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</a> <a href="<?= BASE_URL?>developer/update_extension/corfe" class="btn btn-success"><i class="icon-refresh icon-white"></i> Version</a></td>
+						<td><?= $core->extension_name ?></td>
+						<td><?= $core->version ?></td>
+						<td><?= $core->added_on ?></td>
+						<td><a href="<?= BASE_URL?>developer/update_extension/core" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</a> <a href="<?= BASE_URL?>developer/version/core" class="btn btn-success"><i class="icon-refresh icon-white"></i> Version</a></td>
 					</tr>
+					<? endforeach; ?>
 				</tbody>
 			</table>
 		</div><!--/span-->

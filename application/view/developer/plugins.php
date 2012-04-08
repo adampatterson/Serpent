@@ -23,7 +23,7 @@
 						<td><?= $plugin->extension_name ?></td>
 						<td><?= $plugin->version ?></td>
 						<td><?= $plugin->added_on ?></td>
-						<td><a href="<?= BASE_URL?>developer/update_extension/<?= $plugin->extension_slug ?>" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</a> <a href="<?= BASE_URL?>developer/update_extension/<?= $plugin->extension_slug ?>" class="btn btn-success"><i class="icon-refresh icon-white"></i> Version</a></td>
+						<td><a href="<?= BASE_URL?>developer/update_extension/<?= $plugin->extension_slug ?>" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Edit</a> <a href="<?= BASE_URL?>developer/version/<?= $plugin->extension_slug ?>" class="btn btn-success"><i class="icon-refresh icon-white"></i> Version</a></td>
 					</tr>
 					<? endforeach; ?>
 				</tbody>

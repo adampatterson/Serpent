@@ -38,3 +38,30 @@ function hide_extension( $extension = '' )
 	
 	//return $extension;
 }
+
+/**
+ * Function: checked
+ * If $val == 1 (true), outputs ' checked="checked"'
+ *
+ * Parameters:
+ *     $val - Value to check.
+ */
+function checked( $val1, $val2, $return = false ) 
+{
+	if ( is_array( $val2 ) ) {
+		foreach ($val2 as $value) {
+		
+			if ( $val1 == $value->id )
+				if ($return)
+					return ' checked="checked"';
+				else
+					echo ' checked="checked"';
+		}
+	} else {
+		if ( $val1 == $val2 )
+			if ($return)
+				return ' checked="checked"';
+			else
+				echo ' checked="checked"';
+	}
+}

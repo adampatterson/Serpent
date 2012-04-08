@@ -109,7 +109,7 @@
 				</div>
 			</div>
 			<div class="form-actions">
-				<button class="btn btn-success btn-large">Save</button>
+				<button class="btn btn-success btn-large">Update your Profile</button>
 			</div>
 		</form>
 	</div><!--/span-->

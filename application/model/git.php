@@ -89,4 +89,23 @@ class git_model {
 		
 		return $git_tags;
 	}
+	
+	// https://api.github.com/repos/:user/:repo/tags
+	function only_tags( $repo = '' ) 
+	{
+		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
+		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+
+		$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/tags', 0, $scc );
+
+		$git_tags = json_decode( $git_tags );
+		
+		foreach ( $git_tags as $tag ) {
+			$ordered_tags[] = $tag->name;
+		}
+		
+		natcasesort ( $ordered_tags );
+		
+		return $ordered_tags;
+	}
 }
