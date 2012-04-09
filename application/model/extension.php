@@ -83,23 +83,20 @@ class extension_model {
 	{
 		// update old
 		$users_table = db ( 'extension' );
-			
+
 		if ( $type == 'plugin' ):
 			$type = 'plugin_revision';
 		else:
 			$type = 'theme_revision';
 		endif;
-		
-			
+
 		$users_table->update(array(
 				'extension_type'=> $type
 			))
 			->where( 'id', '=', $old_id )
 			->execute();
-			
-			die;
-			
-			return TRUE;
+
+			return true;
 	}
 	
 	
@@ -190,5 +187,25 @@ class extension_model {
 			->execute();
 			
 		return $get_themes;
+	}
+	
+	public function remove ( $slug = '' )
+	{
+		// update old
+		$users_table = db ( 'extension' );
+
+		$users_table->update(array(
+				'active'=> 0
+			))
+			->where( 'extension_slug', '=', $slug )
+			->clause('AND')
+			->where ( 'active', '=', $active)
+			->clause('AND')
+			->where ( 'extension_type', '!=', 'theme_revision')
+			->clause('AND')
+			->where ( 'extension_type', '!=', 'plugin_revision')
+			->execute();
+
+		return true;
 	}
 }

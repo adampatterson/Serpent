@@ -69,6 +69,20 @@ class action_controller {
 
 		$old_extension = $extension->version_old( input::post( 'old_id' ), input::post ( 'extension_type' ) );
 		
+		url::redirect('developer/');
+	}
+	
+	public function update_extension()
+	{
+		valid_user();
+		
+		$extension 		= load::model( 'extension' );
+		$extension_add 	= $extension->version( );
+		
+		$extension = load::model ( 'extension' );
+
+		$old_extension = $extension->version_old( input::post( 'old_id' ), input::post ( 'extension_type' ) );
+		
 		url::redirect('developer/dashboard/');
 	}
 	
@@ -91,5 +105,15 @@ class action_controller {
 		$hide_repo = $user->hide_repo( $id );
 		
 		url::redirect('developer/dashboard/');
+	}
+	
+	public function remove_extension( $slug = '' )
+	{
+		valid_user();
+
+		$extension = load::model( 'extension' );
+		$extension_add = $extension->remove( $slug );
+		
+		url::redirect('developer/');
 	}
 }

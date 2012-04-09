@@ -45,7 +45,6 @@ class developer_controller {
 		
 		$extension = load::model ( 'extension' );
 		
-		
 		$github = load::model ( 'git' );
 		
 		if ( $repo == 'core' ):
@@ -59,6 +58,27 @@ class developer_controller {
 		endif;
 		
 		load::view ( 'developer/version', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags ) );
+	}
+	
+	public function edit( $repo = '' )
+	{
+		valid_user();
+		
+		$extension = load::model ( 'extension' );
+		
+		$github = load::model ( 'git' );
+		
+		if ( $repo == 'core' ):
+			$get_extension = $extension->get( 'tentacle' );
+			$git_repos = $github->repos( 'Tentacle' );
+			$git_tags = $github->only_tags( 'Tentacle' );
+		else:
+			$get_extension = $extension->get( $repo );
+			$git_repos = $github->repos( $get_extension->repo_name );
+			$git_tags = $github->only_tags( $get_extension->repo_name );
+		endif;
+		
+		load::view ( 'developer/edit', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags ) );
 	}
 	
 	public function themes()

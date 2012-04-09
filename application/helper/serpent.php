@@ -36,7 +36,7 @@ function hide_extension( $extension = '' )
 		endif;
 	}
 	
-	//return $extension;
+	return true;
 }
 
 /**
