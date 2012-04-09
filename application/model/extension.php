@@ -73,7 +73,7 @@ class extension_model {
 			'website'			=>$website
 		));
 
-		note::set('success','extension_add','Extension Added!');
+		note::set('success','extension_version','Extension has been Versioned!');
 		
 		return $extension_id ;
 	}
@@ -96,7 +96,48 @@ class extension_model {
 			->where( 'id', '=', $old_id )
 			->execute();
 
-			return true;
+		return true;
+	}
+	
+	
+	public function update( $id = '' )
+	{
+		$extension_name 	= input::post ( 'extension_name' );
+		$extension_revision = input::post ( 'exension_revision' );
+		$extension_slug 	= input::post ( 'extension_slug' );
+		$extension_type 	= input::post ( 'extension_type' );
+		$extension_version	= input::post ( 'extension_version' );
+		$added_on			= input::post ( 'added_on' );
+		$repo_name			= input::post ( 'repo_name' );
+		
+		$description 		= input::post ( 'description' );
+		$version 			= input::post ( 'version' );
+		$requires			= '';
+		$tested				= '';
+		$author_id			= user::id( );
+		$website			= input::post ( 'website' );
+		
+		$extension_table  = db( 'extension' );
+		
+		$extension_table->update(array(
+				'extension_name'	=>$extension_name,
+				'extension_slug'	=>$extension_slug,
+				'extension_type'	=>$extension_type,
+				'repo_name'			=>$repo_name,
+				'revision'			=>$extension_revision+1,
+				'added_on'			=>$added_on,
+				'modified_on'		=>time(),
+				'description'		=>$description,
+				'version'			=>$version,
+				'author_id'			=>$author_id,
+				'website'			=>$website
+			))
+			->where( 'id', '=', $id )
+			->execute();
+
+		note::set('success','extension_update','Extension Updated!');
+		
+		return TRUE;
 	}
 	
 	

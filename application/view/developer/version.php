@@ -66,7 +66,7 @@
 				</div>
 			</div>
 			<div class="form-actions">
-				<button class="btn btn-success btn-large">Add a new Version</button>
+				<button type="submit" class="btn btn-success btn-large">Add a new Version</button>
 			</div>
 		</form>
 	</div><!--/span-->

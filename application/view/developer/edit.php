@@ -9,7 +9,7 @@
 	<!--/span-->
 	<div class="span9">
 		<h1>Edit an Extension</h1>
-			<form action="<?= BASE_URL ?>action/update_extension" method="post" accept-charset="utf-8" class="form-horizontal">
+			<form action="<?= BASE_URL ?>action/update_extension/<?= $extension->id ?>" method="post" accept-charset="utf-8" class="form-horizontal">
 			<input type="hidden" name="exension_revision" value="<?= $extension->revision ?>">
 			<input type="hidden" name="old_id" value="<?= $extension->id ?>">
 			<input type="hidden" name="added_on" value="<?= $extension->added_on ?>">
@@ -66,7 +66,7 @@
 				</div>
 			</div>
 			<div class="form-actions">
-				<button class="btn btn-success btn-large">Add a new Version</button> <a href="<?= BASE_URL ?>/action/remove_extension/<?= $extension->extension_slug ?>" class="btn btn-danger btn-large">Remove this Extension</a>
+				<button type="submit" class="btn btn-success btn-large">Update this Extension</button> <a href="<?= BASE_URL ?>/action/remove_extension/<?= $extension->extension_slug ?>" class="btn btn-danger btn-large">Remove this Extension</a>
 			</div>
 		</form>
 	</div><!--/span-->

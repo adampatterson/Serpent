@@ -64,26 +64,20 @@ class action_controller {
 		
 		$extension 		= load::model( 'extension' );
 		$extension_add 	= $extension->version( );
-		
-		$extension = load::model ( 'extension' );
 
 		$old_extension = $extension->version_old( input::post( 'old_id' ), input::post ( 'extension_type' ) );
 		
 		url::redirect('developer/');
 	}
 	
-	public function update_extension()
+	public function update_extension( $id )
 	{
 		valid_user();
 		
 		$extension 		= load::model( 'extension' );
-		$extension_add 	= $extension->version( );
-		
-		$extension = load::model ( 'extension' );
-
-		$old_extension = $extension->version_old( input::post( 'old_id' ), input::post ( 'extension_type' ) );
-		
-		url::redirect('developer/dashboard/');
+		$extension_add 	= $extension->update( $id );
+				
+		url::redirect('developer/');
 	}
 	
 	public function submit_extension()
@@ -93,7 +87,7 @@ class action_controller {
 		$extension = load::model( 'extension' );
 		$extension_add = $extension->add( );
 		
-		url::redirect('developer/dashboard/');
+		url::redirect('developer/');
 	}
 	
 	public function hide_extension( $id = '' )
@@ -104,7 +98,7 @@ class action_controller {
 
 		$hide_repo = $user->hide_repo( $id );
 		
-		url::redirect('developer/dashboard/');
+		url::redirect('developer/');
 	}
 	
 	public function remove_extension( $slug = '' )
