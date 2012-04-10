@@ -27,16 +27,12 @@ function icon ( $page )
 function hide_extension( $extension = '' )
 {
 	$user = load::model( 'user' );
-	$hidden_extensions = (array)$user->get_hidden_repo();
-	
-	foreach ( $hidden_extensions as $hidden ) {
-		
-		if ( $hidden->extension == $extension ):
-			return true;
-		endif;
-	}
-	
-	return true;
+
+	if ( $user->get_hidden_repo( $extension, true ) ):
+		return false;
+	else:
+		return true;
+	endif;
 }
 
 /**

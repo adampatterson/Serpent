@@ -289,21 +289,35 @@ class user_model
 	}
 	
 	
-	public function get_hidden_repo ( $id = '' )
+	public function get_hidden_repo ( $extension = '', $count = false )
 	{
 		$hide_extension_table = db ( 'hide_extensions' );
 		
-		if ( $id == '' ):
+		if ( $extension == '' ):
 			$get_hidden_repo = $hide_extension_table->select( '*' )
 				->where ( 'user_id', '=', user::id() )
 				->execute();
+				
+			return $get_hidden_repo;
+			
+		elseif ( isset( $count ) ):
+		
+			$get_hidden_repo = $hide_extension_table->select( '*' )
+				->where ( 'extension', '=', $extension )
+				->execute();
+
+			if ( isset( $get_hidden_repo[0] ) ):	
+				return true;
+			endif;
+			
 		else:
 			$get_hidden_repo = $hide_extension_table->select( '*' )
-				->where ( 'id', '=', $id )
+				->where ( 'extension', '=', $extension )
 				->execute();
+				
+			if ( $get_hidden_repo )
+				return $get_hidden_repo[0];
 		endif;
-		
-		return $get_hidden_repo;
 	}
 	
 }
