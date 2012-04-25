@@ -1,5 +1,5 @@
 <? load::view ( 'parts/header', array('title'=> 'Edit an Extension') );?>
-<div class="row">
+<div class="row-fluid">
 	<div class="span3">
 		<div class="well sidebar-nav">
 			<? load::view ( 'parts/sidebar' );?>
@@ -15,7 +15,7 @@
 			<input type="hidden" name="added_on" value="<?= $extension->added_on ?>">
 			<input type="hidden" name="repo_name" value="<?= $extension->repo_name ?>">
 			<input type="hidden" name="extension_slug" value="<?= $extension->extension_slug ?>">
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span4">
 					<fieldset>
 						<legend>Details</legend>

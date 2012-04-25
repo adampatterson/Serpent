@@ -1,6 +1,6 @@
 <? load::view ( 'parts/header', array('title'=> 'Profile') );?>
 
-<div class="row">
+<div class="row-fluid">
 	<div class="span3">
 		<div class="well sidebar-nav">
 			<? load::view ( 'parts/sidebar' );?>
@@ -12,7 +12,7 @@
 		<h1>Profile</h1>
 		<form action="<?= BASE_URL ?>action/update_profile" method="post" accept-charset="utf-8">
 			<input type="hidden" value="<?= CURRENT_PAGE ?>" name="history" />
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span4 offset1">
 					<fieldset>
 						<legend>Account Details</legend>

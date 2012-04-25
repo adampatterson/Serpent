@@ -1,5 +1,5 @@
 <? load::view ( 'parts/header', array('title'=> 'Submit an Extension') );?>
-<div class="row">
+<div class="row-fluid">
 	<div class="span3">
 		<div class="well sidebar-nav">
 			<? load::view ( 'parts/sidebar' );?>
@@ -11,7 +11,7 @@
 		<h1>Submit an Extension</h1>
 			<form action="<?= BASE_URL ?>action/submit_extension" method="post" accept-charset="utf-8" class="form-horizontal">
 			<input type="hidden"  name="repo_name" value="<?= $repo->name ?>" >
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span4">
 					<fieldset>
 						<legend>Details</legend>

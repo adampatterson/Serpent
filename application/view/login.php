@@ -1,5 +1,5 @@
 <? load::view ( 'parts/header', array('title'=> 'Login') );?>
-<div class="row-">
+<div class="row-fluid">
 	<div class="span12">
 		<form action="<?= BASE_URL; ?>action/login" method="post" accept-charset="utf-8" class="form-horizontal">
 			<fieldset>

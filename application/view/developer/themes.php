@@ -1,5 +1,5 @@
 <? load::view ( 'parts/header', array('title'=> 'Themes') );?>
-	<div class="row">
+	<div class="row-fluid">
 		<div class="span3">
 			<div class="well sidebar-nav">
 				<? load::view ( 'parts/sidebar' );?>
