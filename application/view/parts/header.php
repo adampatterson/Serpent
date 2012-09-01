@@ -43,7 +43,7 @@ padding: 9px 0;
 			<div class="nav-collapse">
 				
 				<ul class="nav">
-					<li></li>
+					<li><a href="https://github.com/adampatterson/Serpent/wiki" target="_blank">Help</a></li>
 <? /* 
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#about">About</a></li>
