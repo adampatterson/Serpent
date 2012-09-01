@@ -30,7 +30,6 @@ class git_model {
 	// https://api.github.com/users/:user/repos/
 	public function repos( $repo = '' )
 	{
-
 		if ( !defined( 'CHECK_TIMEOUT') ) define( 'CHECK_TIMEOUT', 5 );
 		$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
 
@@ -103,8 +102,12 @@ class git_model {
 		foreach ( $git_tags as $tag ) {
 			$ordered_tags[] = $tag->name;
 		}
-		
-		natcasesort ( $ordered_tags );
+		 
+		if ( isset( $ordered_tags ) ) {
+			natcasesort ( $ordered_tags );
+		} else {
+			$ordered_tags = NULL;
+		}
 		
 		return $ordered_tags;
 	}

@@ -31,34 +31,63 @@
 								<input type="text" class="input-xlarge" id="website" name="website" value="<?= $extension->website ?>">
 							</div>
 						</div>
+						
 						<div class="control-group">
 							<label class="control-label">Extension Type</label>
 							<div class="controls">
-								<label class="radio">
-									<input type="radio" name="extension_type" id="theme" value="theme" <?= checked( 'theme', $extension->extension_type ) ?>>
-									Theme
-								</label>
-								<label class="radio">
-									<input type="radio" name="extension_type" id="plugin" value="plugin" <?= checked( 'plugin', $extension->extension_type ) ?>>
-									Plugin
-								</label>
+								<? if ( $core != 'core' ): ?>
+									<label class="radio">
+										<input type="radio" name="extension_type" id="theme" value="theme" <?= checked( 'theme', $extension->extension_type ) ?>>
+										Theme
+									</label>
+									<label class="radio">
+										<input type="radio" name="extension_type" id="plugin" value="plugin" <?= checked( 'plugin', $extension->extension_type ) ?>>
+										Plugin
+									</label>
+								<? else: ?>
+									<label class="radio">
+										<input type="radio" name="extension_type" id="core" value="core" <?= checked( 'core', $core ) ?>>
+										Core
+									</label>
+								<? endif; ?>
 							</div>
 						</div>
+						
 						<div class="control-group">
 							<label class="control-label" for="description">Description</label>
 							<div class="controls">
 								<textarea class="input-xlarge" id="description" name="description"><?= $extension->description ?></textarea>
 							</div>
 						</div>
+						
+						<? if ( $core == 'core' ): ?>
+						<div class="control-group">
+							<label class="control-label" for="release_notes">Release Notes</label>
+							<div class="controls">
+								<textarea type="text" class="input-xlarge" id="release_notes" name="release_notes"></textarea>
+							</div>
+						</div>
+						<? endif; ?>
+						
 						<div class="control-group">
 							<label class="control-label">Version</label>
 							<div class="controls">
-								<? foreach ( $tags as $tag ): ?>
+								<? 
+								if ($tags === NULL): ?>
+								
 									<label class="radio">
-										<input type="radio" name="version" id="theme" value="<?= $tag ?>" <?= checked( $tag, $extension->version ) ?>>
-										<?= $tag ?>
+										<input type="radio" name="version" id="theme" value="beta" <?= checked( 'beta', $extension->version ) ?>>
+										Beta
 									</label>
-								<?  endforeach; ?>
+								<?else:
+									foreach ( $tags as $tag ): ?>
+										<label class="radio">
+											<input type="radio" name="version" id="theme" value="<?= $tag ?>" <?= checked( $tag, $extension->version ) ?>>
+											<?= $tag ?>
+										</label>
+								<?  endforeach; 
+								endif;
+								?>
 								<p class="help-block"><small>The version number is set via <a href="http://learn.github.com/p/tagging.html" target="_blank">Git tags</a>, and should follow the <strong>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</strong> convention.</small></p>
 							</div>
 						</div>

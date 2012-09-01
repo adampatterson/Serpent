@@ -1,5 +1,4 @@
 <?
-
 class extension_model {
 	public function add()
 	{
@@ -84,10 +83,12 @@ class extension_model {
 		// update old
 		$users_table = db ( 'extension' );
 
-		if ( $type == 'plugin' ):
-			$type = 'plugin_revision';
-		else:
+		if ( $type == 'core' ):
+			$type = 'core_revision';
+		elseif($type == 'theme'):
 			$type = 'theme_revision';
+		else:
+			$type = 'plugin_revision';
 		endif;
 
 		$users_table->update(array(
@@ -100,7 +101,7 @@ class extension_model {
 	}
 	
 	
-	public function update( $id = '' )
+	public function update( $id = '', $core = '' )
 	{
 		$extension_name 	= input::post ( 'extension_name' );
 		$extension_revision = input::post ( 'exension_revision' );
@@ -153,6 +154,8 @@ class extension_model {
 				->clause('AND')
 				->where ( 'extension_type', '!=', 'plugin_revision')
 				->clause('AND')
+				->where ( 'extension_type', '!=', 'core_revision')
+				->clause('AND')
 				->where ( 'active', '=', $active)
 				->execute();
 		} else {	
@@ -162,6 +165,8 @@ class extension_model {
 				->where ( 'extension_type', '!=', 'theme_revision')
 				->clause('AND')
 				->where ( 'extension_type', '!=', 'plugin_revision')
+				->clause('AND')
+				->where ( 'extension_type', '!=', 'core_revision')
 				->clause('AND')
 				->where ( 'active', '=', $active)
 				->execute();

@@ -34,14 +34,21 @@
 						<div class="control-group">
 							<label class="control-label">Extension Type</label>
 							<div class="controls">
-								<label class="radio">
-									<input type="radio" name="extension_type" id="theme" value="theme" <?= checked( 'theme', $extension->extension_type ) ?>>
-									Theme
-								</label>
-								<label class="radio">
-									<input type="radio" name="extension_type" id="plugin" value="plugin" <?= checked( 'plugin', $extension->extension_type ) ?>>
-									Plugin
-								</label>
+								<? if ( $core != 'core' ): ?>
+									<label class="radio">
+										<input type="radio" name="extension_type" id="theme" value="theme" <?= checked( 'theme', $extension->extension_type ) ?>>
+										Theme
+									</label>
+									<label class="radio">
+										<input type="radio" name="extension_type" id="plugin" value="plugin" <?= checked( 'plugin', $extension->extension_type ) ?>>
+										Plugin
+									</label>
+								<? else: ?>
+									<label class="radio">
+										<input type="radio" name="extension_type" id="core" value="core" <?= checked( 'core', $extension->extension_type ) ?>>
+										Core
+									</label>
+								<? endif; ?>
 							</div>
 						</div>
 						<div class="control-group">

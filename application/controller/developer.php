@@ -57,7 +57,7 @@ class developer_controller {
 			$git_tags = $github->only_tags( $get_extension->repo_name );
 		endif;
 		
-		load::view ( 'developer/version', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags ) );
+		load::view ( 'developer/version', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags, 'core'=> $repo ) );
 	}
 	
 	public function edit( $repo = '' )
@@ -78,7 +78,7 @@ class developer_controller {
 			$git_tags = $github->only_tags( $get_extension->repo_name );
 		endif;
 		
-		load::view ( 'developer/edit', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags ) );
+		load::view ( 'developer/edit', array( 'extension'=>$get_extension, 'repo'=> $git_repos, 'tags'=> $git_tags, 'core'=> $repo ) );
 	}
 	
 	public function themes()
