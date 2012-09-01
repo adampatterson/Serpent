@@ -1,2 +1,3 @@
 .idea/
 application/config/development/db.php
+/.DS_Store
