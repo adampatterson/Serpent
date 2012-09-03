@@ -51,12 +51,23 @@
 								<? endif; ?>
 							</div>
 						</div>
+						
 						<div class="control-group">
 							<label class="control-label" for="description">Description</label>
 							<div class="controls">
 								<textarea class="input-xlarge" id="description" name="description"><?= $extension->description ?></textarea>
 							</div>
 						</div>
+						
+						<? if ( $core == 'core' ): ?>
+						<div class="control-group">
+							<label class="control-label" for="release_notes">Release Notes</label>
+							<div class="controls">
+								<textarea type="text" class="input-xlarge" id="release_notes" name="release_notes"></textarea>
+							</div>
+						</div>
+						<? endif; ?>
+						
 						<div class="control-group">
 							<label class="control-label">Version</label>
 							<div class="controls">
