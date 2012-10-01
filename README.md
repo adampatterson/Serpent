@@ -29,6 +29,7 @@ I then set off to build a developer portal to manage this versioning.
 * get/plugins/
 * get/plugins/{slug}
 * get/author/{username}
+* get/versions/{slug}
 
 Later on I will collect ratings, statistics such as number of downloads and compatibility. You will also be able to look up all extensions from an author, and search categories.
 
