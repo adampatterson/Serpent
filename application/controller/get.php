@@ -87,7 +87,7 @@ class get_controller {
 			$extension[$depth]['version'] = $plugin->version;
 			$extension[$depth]['author_id'] = $plugin->author_id;
 			$extension[$depth]['website'] = $plugin->website;
-			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
+			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/archive/'.$plugin->version.'.zip';
 			
 			$depth++;
 		}
@@ -136,7 +136,7 @@ class get_controller {
 		$extension['version'] = $core->version;
 		$extension['author_id'] = $core->author_id;
 		$extension['website'] = $core->website;
-		$extension['download'] = 'https://github.com/adampatterson/Tentacle/zipball/'.$core->version;
+		$extension['download'] = 'https://github.com/adampatterson/Tentacle/archive/'.$core->version.'.zip';
 
 		echo json_encode($extension);
 	}
