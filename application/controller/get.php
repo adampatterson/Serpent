@@ -32,7 +32,7 @@ class get_controller {
 			$extension[$depth]['version'] = $theme->version;
 			$extension[$depth]['author_id'] = $theme->author_id;
 			$extension[$depth]['website'] = $theme->website;
-			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$theme->repo_name.'/zipball/'.$theme->version;
+			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$theme->repo_name.'/zip/'.$theme->version;
 			
 			$depth++;
 		}
@@ -60,7 +60,7 @@ class get_controller {
 			$extension[$depth]['version'] = $plugin->version;
 			$extension[$depth]['author_id'] = $plugin->author_id;
 			$extension[$depth]['website'] = $plugin->website;
-			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
+			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zip/'.$plugin->version;
 			
 			$depth++;
 		}
@@ -87,7 +87,7 @@ class get_controller {
 			$extension[$depth]['version'] = $plugin->version;
 			$extension[$depth]['author_id'] = $plugin->author_id;
 			$extension[$depth]['website'] = $plugin->website;
-			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/archive/'.$plugin->version.'.zip';
+			$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zip/'.$plugin->version;
 			
 			$depth++;
 		}
@@ -136,7 +136,7 @@ class get_controller {
 		$extension['version'] = $core->version;
 		$extension['author_id'] = $core->author_id;
 		$extension['website'] = $core->website;
-		$extension['download'] = 'https://github.com/adampatterson/Tentacle/archive/'.$core->version.'.zip';
+		$extension['download'] = 'https://github.com/adampatterson/Tentacle/zip/'.$core->version;
 
 		echo json_encode($extension);
 	}
