@@ -30,7 +30,8 @@ class extension_model {
 			'description'		=>$description,
 			'version'			=>$version,
 			'author_id'			=>$author_id,
-			'website'			=>$website
+			'website'			=>$website,
+			'count'				=>1
 		));
 
 		note::set('success','extension_add','Extension Added!');
@@ -170,7 +171,7 @@ class extension_model {
 				->clause('AND')
 				->where ( 'active', '=', $active)
 				->execute();
-		}
+		}	
 
 		if ( $get ):
 			return $get[0];
