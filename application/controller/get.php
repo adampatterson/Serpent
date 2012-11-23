@@ -118,6 +118,8 @@ class get_controller {
 	    $api_author['website'] =  $author_meta->website;
 		
 		echo json_encode( $api_author );
+		
+		
 	}
 	
 	

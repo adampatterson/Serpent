@@ -829,12 +829,14 @@ class route
 		$new_url = $url;
 		
 		// REST API
+		/*
 		if(preg_match('/\.([\-_a-zA-Z]+)$/',$new_url))
 		{
 			$split = explode('.',$new_url);
 			api::set(array_pop($split));
 			$new_url = implode('.',$split);
 		}
+		*/
 		
 		// Static routes
 		if(!empty(self::$route[$url]))
