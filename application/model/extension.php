@@ -143,11 +143,17 @@ class extension_model {
 	}
 	
 	
-	public function get( $slug = '', $active = '1' )
+	public function get( $slug = '', $revision = false, $active = '1' )
 	{
 		$extension_table = db ( 'extension' );
 
-		if ( is_numeric( $slug ) ) {
+		if ( $revision ) {
+			$get = $extension_table->select( '*' )
+				->where ( 'id', '=', $slug)
+				->clause('AND')
+				->where ( 'active', '=', $active)
+				->execute();
+		} elseif ( is_numeric( $slug ) ) {
 			$get = $extension_table->select( '*' )
 				->where ( 'id', '=', $slug)
 				->clause('AND')
@@ -180,6 +186,17 @@ class extension_model {
 		endif;
 	}
 	
+	
+	public function get_slug( $slug ='' )
+	{
+		$extension_table = db ( 'extension' );
+
+		$get = $extension_table->select( '*' )
+			->where ( 'extension_slug', '=', $slug)
+			->order_by( 'id', 'DESC' )
+			->execute();
+		return $get;
+	}
 	
 	public function get_versions( $slug = '' )
 	{

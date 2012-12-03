@@ -16,7 +16,7 @@
 				</div>
 				<div class="control-group">
 					<div class="controls">
-						<button type="submit" class="btn btn-primary">Login</button> or <a href="<?= BASE_URL ?>register" class="btn">Register</a>
+						<button type="submit" class="btn btn-primary">Login</button> <!--or <a href="<?= BASE_URL ?>register" class="btn">Register</a>-->
 					</div>
 				</div>
 			</fieldset>
