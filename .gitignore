@@ -1,3 +1,4 @@
 .idea/
 application/config/development/db.php
 /.DS_Store
+/serpent.tmproj

@@ -22,7 +22,7 @@ define('CONFIG','config');
 // Allowed Characters in URL
 define('ALLOWED_CHARS','/^[ \!\,\~\&\.\:\+\@\-_a-zA-Z0-9]+$/');
 
-
+define( 'CHECK_TIMEOUT', 5 );
 
 // End of configuration
 //----------------------------------------------------------------------------------------------

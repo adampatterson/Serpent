@@ -25,15 +25,16 @@ class get_controller {
 			
 			$author = $user->get_meta($theme->author_id);
 			
-			$extension[$depth]['id'] = $theme->id;
+			$extension[$depth]['id']             = $theme->id;
 			$extension[$depth]['extension_name'] = $theme->extension_name;
 			$extension[$depth]['extension_slug'] = $theme->extension_slug;
-			$extension[$depth]['description'] = $theme->description;
-			$extension[$depth]['version'] = $theme->version;
-			$extension[$depth]['author_id'] = $theme->author_id;
-			$extension[$depth]['website'] = $theme->website;
-			//$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$theme->repo_name.'/zipball/'.$theme->version;
-			$extension[$depth]['download'] = BASE_URL.'get/download/'.$theme->id;
+			$extension[$depth]['description']    = $theme->description;
+			$extension[$depth]['version']        = $theme->version;
+			$extension[$depth]['author_id']      = $theme->author_id;
+			$extension[$depth]['website']        = $theme->website;
+			//$extension[$depth]['download']     = 'https://github.com/'.$author->git_user.'/'.$theme->repo_name.'/zipball/'.$theme->version;
+			$extension[$depth]['download']       = BASE_URL.'get/download/'.$theme->id;
+
 			
 			$depth++;
 		}
@@ -54,15 +55,16 @@ class get_controller {
 			
 			$author = $user->get_meta($plugin->author_id);
 			
-			$extension[$depth]['id'] = $plugin->id;
+			$extension[$depth]['id']             = $plugin->id;
 			$extension[$depth]['extension_name'] = $plugin->extension_name;
 			$extension[$depth]['extension_slug'] = $plugin->extension_slug;
-			$extension[$depth]['description'] = $plugin->description;
-			$extension[$depth]['version'] = $plugin->version;
-			$extension[$depth]['author_id'] = $plugin->author_id;
-			$extension[$depth]['website'] = $plugin->website;
-			//$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
-			$extension[$depth]['download'] = BASE_URL.'get/download/'.$plugin->id;
+			$extension[$depth]['description']    = $plugin->description;
+			$extension[$depth]['version']        = $plugin->version;
+			$extension[$depth]['author_id']      = $plugin->author_id;
+			$extension[$depth]['website']        = $plugin->website;
+			//$extension[$depth]['download']     = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
+			$extension[$depth]['download']       = BASE_URL.'get/download/'.$plugin->id;
+
 			
 			$depth++;
 		}
@@ -82,15 +84,16 @@ class get_controller {
 			
 			$author = $user->get_meta($plugin->author_id);
 			
-			$extension[$depth]['id'] = $plugin->id;
+			$extension[$depth]['id']             = $plugin->id;
 			$extension[$depth]['extension_name'] = $plugin->extension_name;
 			$extension[$depth]['extension_slug'] = $plugin->extension_slug;
-			$extension[$depth]['description'] = $plugin->description;
-			$extension[$depth]['version'] = $plugin->version;
-			$extension[$depth]['author_id'] = $plugin->author_id;
-			$extension[$depth]['website'] = $plugin->website;
-			//$extension[$depth]['download'] = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
-			$extension[$depth]['download'] = BASE_URL.'get/download/'.$plugin->id;
+			$extension[$depth]['description']    = $plugin->description;
+			$extension[$depth]['version']        = $plugin->version;
+			$extension[$depth]['author_id']      = $plugin->author_id;
+			$extension[$depth]['website']        = $plugin->website;
+			//$extension[$depth]['download']     = 'https://github.com/'.$author->git_user.'/'.$plugin->repo_name.'/zipball/'.$plugin->version;
+			$extension[$depth]['download']       = BASE_URL.'get/download/'.$plugin->id;
+
 			
 			$depth++;
 		}
@@ -107,22 +110,20 @@ class get_controller {
 		$author = $user->get( $id );	
 		$author_meta = $user->get_meta( $id );
 		
-		$api_author['username'] = $author->username;
-		$api_author['id'] = $author->id;
-		$api_author['email'] = $author->email;
-		$api_author['first_name'] = $author_meta->first_name;
-		$api_author['last_name'] = $author_meta->last_name;
-	    $api_author['location'] =  $author_meta->location;
-	    $api_author['about_you'] =  $author_meta->about_you;
-	    $api_author['git_user'] =  $author_meta->git_user;
-	    $api_author['twitter'] =  $author_meta->twitter;
-	    $api_author['linkedin'] =  $author_meta->linkedin;
-	    $api_author['forrst'] =  $author_meta->forrst;
-	    $api_author['website'] =  $author_meta->website;
-		
-		echo json_encode( $api_author );
-		
-		
+		$api_author['username']     = $author->username;
+		$api_author['id']           = $author->id;
+		$api_author['email']        = $author->email;
+		$api_author['first_name']   = $author_meta->first_name;
+		$api_author['last_name']    = $author_meta->last_name;
+	    $api_author['location']  	= $author_meta->location;
+	    $api_author['about_you'] 	= $author_meta->about_you;
+	    $api_author['git_user']  	= $author_meta->git_user;
+	    $api_author['twitter']   	= $author_meta->twitter;
+	    $api_author['linkedin']  	= $author_meta->linkedin;
+	    $api_author['forrst']    	= $author_meta->forrst;
+	    $api_author['website']   	= $author_meta->website;
+
+		echo json_encode( $api_author );		
 	}
 	
 	
@@ -134,21 +135,22 @@ class get_controller {
 		
 		$core = $core[0];
 
-		$extension['id'] = $core->id;
+		$extension['id']             = $core->id;
 		$extension['extension_name'] = $core->extension_name;
 		$extension['extension_slug'] = $core->extension_slug;
-		$extension['description'] = $core->description;
-		$extension['version'] = $core->version;
-		$extension['author_id'] = $core->author_id;
-		$extension['website'] = $core->website;
-		//$extension['download'] = 'https://github.com/adampatterson/Tentacle/zipball/');
-		$extension['download'] = BASE_URL.'get/download/'.$core->id;
+		$extension['description']    = $core->description;
+		$extension['version']        = $core->version;
+		$extension['author_id']      = $core->author_id;
+		$extension['website']        = $core->website;
+		//$extension['download']     = 'https://github.com/adampatterson/Tentacle/zipball/');
+		$extension['download']       = BASE_URL.'get/download/'.$core->id;
+
 
 		echo json_encode($extension);
 	}
 	
 	
-	public function download( $id = '' )
+	public function download( $id = 41 )
 	{
 		$extension 	= load::model ( 'extension' );
 		$user 		= load::model ( 'user' );
