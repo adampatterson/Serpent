@@ -18,7 +18,7 @@
 				</thead>
 				<tbody>
 					<? foreach ($git_repos as $repo):?>
-						<? if ( hide_extension( $repo->name ) ): ?>
+						<? if ( hide_extension( $repo->name ) && active_extension($repo->name) ): ?>
 							<tr>
 								<td><?= $repo->name ?></td>
 								<td><?= $repo->description ?></td>

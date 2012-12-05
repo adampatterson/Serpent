@@ -35,6 +35,17 @@ function hide_extension( $extension = '' )
 	endif;
 }
 
+function active_extension( $active_extension = '' )
+{
+	$extension = load::model( 'extension' );
+
+	if ( $extension->get( $active_extension, true ) ):
+		return true;
+	else:
+		return false;
+	endif;
+}
+
 /**
  * Function: checked
  * If $val == 1 (true), outputs ' checked="checked"'

@@ -82,7 +82,7 @@ class git_model {
 
 			$git_repo = file_get_contents( 'https://api.github.com/repos/adampatterson/Tentacle', 0, $scc );
 
-			return json_decode( $cache->set( $cache_key, $git_repo, '+6 hours' ) );
+			return json_decode( $git_repo );
 		else:
 			return json_decode( $cache->get( $cache_key ) );
 		endif;
