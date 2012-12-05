@@ -12,9 +12,13 @@ class get_controller {
 		
 	}
 	
-	
 	public function themes( $slug = '' )
 	{	
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+			
 		$extensions = load::model ( 'extension' );
 		$user = load::model ( 'user' );
 			
@@ -42,9 +46,13 @@ class get_controller {
 		echo json_encode( $extension );
 	}
 	
-	
 	public function plugins( $slug = '' )
 	{
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+		
 		$extensions = load::model ( 'extension' );
 		$user = load::model ( 'user' );
 
@@ -74,6 +82,11 @@ class get_controller {
 	
 	public function versions( $slug = '' )
 	{
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+		
 		$extensions = load::model ( 'extension' );
 		$user = load::model ( 'user' );
 
@@ -105,6 +118,11 @@ class get_controller {
 	// @todo: look up by author username
 	public function author( $id = '' )
 	{
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+		
 		$user = load::model ( 'user' );
 		
 		$author = $user->get( $id );	
@@ -129,6 +147,11 @@ class get_controller {
 	
 	public function core()
 	{
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+		
 		$extensions = load::model ( 'extension' );
 
 		$core = $extensions->get_core();
@@ -152,6 +175,11 @@ class get_controller {
 	
 	public function download( $id = 41 )
 	{
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+		
 		$extension 	= load::model ( 'extension' );
 		$user 		= load::model ( 'user' );
 		
@@ -161,6 +189,37 @@ class get_controller {
 		$stats = load::model( 'stats' )->add($get->id, $get->count);
 
 		$file = 'https://github.com/'.$author->git_user.'/'.$get->repo_name.'/zipball/'.$get->version;	
+
+		// If the files are downloaded and served from Serpent then we can read the file, For now we will redirect back to Github.
+		if (file_exists($file)) {
+			 header('Content-Description: File Transfer');
+			 header('Content-Type: application/octet-stream');
+			 //header('Content-Length: ' . filesize($f_location));
+			 header('Content-Disposition: attachment; filename=' . basename($get->extension_slug).'.zip');
+
+			readfile($file);
+			echo file_get_contents( $file );
+		} else {
+			header('Location: ' . $file);
+		}
+	}
+	
+	public function nightly( $id = 41 )
+	{
+		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header('Cache-Control: max-age='.CACHE_TIMEOUT);
+		
+		$extension 	= load::model ( 'extension' );
+		$user 		= load::model ( 'user' );
+		
+		$get 		= $extension->get($id, true);
+		$author 	= $user->get_meta($get->author_id);
+		
+		$stats = load::model( 'stats' )->add($get->id, $get->count);
+
+		$file = 'https://github.com/'.$author->git_user.'/'.$get->repo_name.'/archive/master.zip';	
 
 		// If the files are downloaded and served from Serpent then we can read the file, For now we will redirect back to Github.
 		if (file_exists($file)) {
