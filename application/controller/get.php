@@ -185,6 +185,7 @@ class get_controller {
 
         if ( is_string($id)) {
             $get 	= $extension->get_core();
+            $get = $get[0];
         } else {
             $get 	= $extension->get($id, true);
         }
@@ -221,6 +222,7 @@ class get_controller {
 
         if ( is_string($id)) {
             $get 	= $extension->get_core();
+            $get = $get[0];
         } else {
             $get 	= $extension->get($id, true);
         }
