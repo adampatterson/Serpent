@@ -173,7 +173,7 @@ class get_controller {
 	}
 	
 	
-	public function download( $id = 41 )
+	public function download( $id = 44 )
 	{
 		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
 		header("Expires: $ts");
