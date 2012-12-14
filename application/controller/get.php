@@ -173,7 +173,7 @@ class get_controller {
 	}
 	
 	
-	public function download( $id = 44 )
+	public function download( $id = 'core' )
 	{
 		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
 		header("Expires: $ts");
@@ -182,9 +182,14 @@ class get_controller {
 		
 		$extension 	= load::model ( 'extension' );
 		$user 		= load::model ( 'user' );
-		
-		$get 		= $extension->get($id, true);
-		$author 	= $user->get_meta($get->author_id);
+
+        if ( is_string($id)) {
+            $get 	= $extension->get_core();
+        } else {
+            $get 	= $extension->get($id, true);
+        }
+
+        $author 	= $user->get_meta($get->author_id);
 		
 		$stats = load::model( 'stats' )->add($get->id, $get->count);
 
@@ -200,11 +205,11 @@ class get_controller {
 			readfile($file);
 			echo file_get_contents( $file );
 		} else {
-			header('Location: ' . $file);
+            header('Location: ' . $file);
 		}
 	}
 	
-	public function nightly( $id = 44 )
+	public function nightly( $id = 'core' )
 	{
 		$ts = gmdate("D, d M Y H:i:s", time() + CACHE_TIMEOUT) . " GMT";
 		header("Expires: $ts");
@@ -213,8 +218,13 @@ class get_controller {
 		
 		$extension 	= load::model ( 'extension' );
 		$user 		= load::model ( 'user' );
-		
-		$get 		= $extension->get($id, true);
+
+        if ( is_string($id)) {
+            $get 	= $extension->get_core();
+        } else {
+            $get 	= $extension->get($id, true);
+        }
+
 		$author 	= $user->get_meta($get->author_id);
 		
 		$stats = load::model( 'stats' )->add($get->id, $get->count);

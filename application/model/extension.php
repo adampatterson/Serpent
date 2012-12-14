@@ -250,7 +250,7 @@ class extension_model {
 			->where ( 'active', '=', $active)
 			->execute();
 			
-		return $get_themes;
+		return $get_themes[0];
 	}
 	
 	public function remove ( $slug = '' )
