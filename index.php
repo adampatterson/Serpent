@@ -24,7 +24,7 @@ define('ALLOWED_CHARS','/^[ \!\,\~\&\.\:\+\@\-_a-zA-Z0-9]+$/');
 
 define( 'CHECK_TIMEOUT', 5 );
 
-define( 'CACHE_TIMEOUT', 2160 );
+define( 'CACHE_TIMEOUT', 21600 );
 
 // End of configuration
 //----------------------------------------------------------------------------------------------

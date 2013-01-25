@@ -165,7 +165,7 @@ class extension_model {
 				->clause('AND')
 				->where ( 'active', '=', $active)
 				->execute();
-		} else {	
+		} else {
 			$get = $extension_table->select( '*' )
 				->where ( 'extension_slug', '=', $slug)
 				->clause('AND')
@@ -177,12 +177,12 @@ class extension_model {
 				->clause('AND')
 				->where ( 'active', '=', $active)
 				->execute();
-		}	
+		}
 
 		if ( $get ):
 			return $get[0];
 		else:
-			return FALSE;
+			return true;
 		endif;
 	}
 	

@@ -87,3 +87,5 @@
 [12:11 AM Mar 28 2012] Notice: Undefined variable: user IN /Users/adampatterson/Sites/serpent/application/helper/user.php ON LINE 21
 [12:16 AM Mar 28 2012] Warning: file_get_contents(https://api.github.com/users/adampattersonrepos) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
  IN /Users/adampatterson/Sites/serpent/application/model/git.php ON LINE 35
+[4:32 PM Jan 22 2013] Warning: Invalid argument supplied for foreach() IN /Users/adampatterson/Sites/serpent/application/view/developer/edit.php ON LINE 74
+[4:32 PM Jan 22 2013] Notice: Undefined variable: active IN /Users/adampatterson/Sites/serpent/application/model/extension.php ON LINE 266

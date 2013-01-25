@@ -60,7 +60,7 @@ class git_model {
 		$cache = new cache();
 		$cache_key = 'refs_'.user_git().'_'.$repo;
 
-		if ( $cache->look_up(cache_key) == false):		
+		if ( $cache->look_up($cache_key) == false):
 			$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
 
 			$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/git/refs/tags', 0, $scc );
@@ -82,7 +82,7 @@ class git_model {
 
 			$git_repo = file_get_contents( 'https://api.github.com/repos/adampatterson/Tentacle', 0, $scc );
 
-			return json_decode( $git_repo );
+			return json_decode( $cache->set( $cache_key, $git_repo, '+2 hours' ) );
 		else:
 			return json_decode( $cache->get( $cache_key ) );
 		endif;

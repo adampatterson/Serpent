@@ -23,7 +23,7 @@ class developer_controller {
 		
 		$github = load::model( 'git' );
 		$git_repos = $github->repos();
-		
+
 		load::view ( 'developer/dashboard', array( 'git_repos'=>$git_repos ) );
 	}
 	
