@@ -179,7 +179,7 @@ class extension_model {
 				->execute();
 		}
 
-		if ( $get ):
+        if ( !empty($get) ):
 			return $get[0];
 		else:
 			return true;
