@@ -4,6 +4,11 @@ Using git would be ideal if I was the one managing a single web application. Obv
 
 I then set off to build a developer portal to manage this versioning.
 
+** SQL Dump **
+
+* https://gist.github.com/adampatterson/8047735
+
+
 **Features**
 
 * Contributors can register/login
