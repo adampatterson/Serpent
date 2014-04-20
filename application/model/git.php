@@ -31,12 +31,10 @@ class git_model {
 	{		
 		$cache = new cache();
 		$cache_key = 'repos_'.user_git().'_'.$repo;
-		
-		if ( $cache->look_up($cache_key) == false):		
-			$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
 
-			$git_repo = file_get_contents( 'https://api.github.com/users/'.user_git().'/repos', 0, $scc );	
-
+		if ( $cache->look_up($cache_key) == false):
+            $scc = stream_context_create( array( 'http' => array( 'method'=>"GET", 'user_agent' => $_SERVER['HTTP_USER_AGENT'], 'timeout' => CHECK_TIMEOUT ) ) );
+			$git_repo = file_get_contents( 'https://api.github.com/users/'.user_git().'/repos', 0, $scc );
 			$git_repo =  json_decode( $cache->set( $cache_key, $git_repo, '+6 hours' ) );
 		else:
 			$git_repo = json_decode( $cache->get( $cache_key ) );
@@ -77,8 +75,8 @@ class git_model {
 		$cache = new cache();
 		$cache_key = 'core_'.user_git();
 		
-		if ( $cache->look_up($cache_key) == false):		
-			$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+		if ( $cache->look_up($cache_key) == false):
+            $scc = stream_context_create( array( 'http' => array( 'method'=>"GET", 'user_agent' => $_SERVER['HTTP_USER_AGENT'], 'timeout' => CHECK_TIMEOUT ) ) );
 
 			$git_repo = file_get_contents( 'https://api.github.com/repos/adampatterson/Tentacle', 0, $scc );
 
@@ -94,8 +92,8 @@ class git_model {
 		$cache = new cache();
 		$cache_key = 'tags_'.user_git().'_'.$repo;
 
-		if ( $cache->look_up($cache_key) == false):		
-			$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+		if ( $cache->look_up($cache_key) == false):
+            $scc = stream_context_create( array( 'http' => array( 'method'=>"GET", 'user_agent' => $_SERVER['HTTP_USER_AGENT'], 'timeout' => CHECK_TIMEOUT ) ) );
 
 			$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/tags'.$sha, 0, $scc );
 
@@ -111,8 +109,8 @@ class git_model {
 		$cache = new cache();
 		$cache_key = 'only_tags_'.user_git().'_'.$repo;
 
-		if ( $cache->look_up($cache_key) == false):		
-			$scc = stream_context_create( array( 'http' => array( 'timeout' => CHECK_TIMEOUT ) ) );
+		if ( $cache->look_up($cache_key) == false):
+            $scc = stream_context_create( array( 'http' => array( 'method'=>"GET", 'user_agent' => $_SERVER['HTTP_USER_AGENT'], 'timeout' => CHECK_TIMEOUT ) ) );
 
 			$git_tags = file_get_contents( 'https://api.github.com/repos/'.user_git().'/'.$repo.'/tags', 0, $scc );
 
